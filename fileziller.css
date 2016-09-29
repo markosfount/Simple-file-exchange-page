@@ -1,0 +1,55 @@
+h1{
+	background-color:#ccc;
+	font-size:60px;
+	text-align:center;
+	padding:30px 10px;
+	margin-bottom:0px;
+	border-bottom:2px solid black;
+}
+
+#filelist{
+	float:left;
+	margin-bottom:400px;
+	background-color:#ddd;
+	width:400px;
+	height:500px;
+}
+
+#filelist p{
+	padding-left:40px;
+}
+
+#form{
+	margin-left:400px;
+	padding:40px 100px 0px 100px;
+	background-color:#555;
+	height:500px;
+	font-size:24px;
+}
+
+input, select{
+	font-size:18px;
+}
+
+a{
+	display:block;
+}
+
+.inform{
+	display:block;
+}
+
+#Logout a{
+	text-decoration:underline;
+	
+}
+
+#Logout{
+	float:right;
+	text-align:center;
+	font-size:20px;
+	background-color:#ddd;
+	width:200px;
+	height:500px;
+	padding-top:10px;
+}
