@@ -1,7 +1,8 @@
 <?php
 	include 'connectdb.php';
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Fileziller Beta 2.0</title>
@@ -9,8 +10,13 @@
 </head>
 
 <body>
-	<h1>FileZiller 2.0 Beta</h1>
+
+<div class='container'>
+	<header>
+		<h1>FileZiller 2.0 Beta</h1>
+	</header>
 	
+	<div class='main'>
 	<div id='filelist'>
 		<?php
 			if (isset($_SESSION['Username'])){
@@ -31,13 +37,6 @@
 				echo "Login or Sign up to see available files"
 		?>
 	</div> 
-	
-	<div id='logout'>
-		<?php
-			if (isset($_SESSION['Username']))
-				echo "<a href='logout.php'>Logout</a>";
-		?>
-	</div>
 	
 	<?php
 		if (isset($_SESSION['Username'])){ ?>
@@ -85,7 +84,17 @@
 		}
 	
 		?>
-	
+		<div id='logout'>
+		<?php
+			if (isset($_SESSION['Username']))
+				echo "<a href='logout.php'>Logout</a>";
+		?>
+		</div>
+	</div>
+	<footer>
+		<p>Copyright 2016 @subdime</p>
+	</footer>
+</div>
 </body>
 
 
