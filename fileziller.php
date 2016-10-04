@@ -59,35 +59,50 @@
 		else{ ?>
 			 
 		<div id='form'>
-		<h3>Sign up to Fileziller for free!</h3>
+		<h3>Sign up to Fileziller for free or login if you already have an account!</h3>
 			
 			
 		<form enctype="multipart/form-data" action='signup.php' method='post'>
-			<input type='text' value='Username' name='Username' class='inform'/>
-			<input type='text' value='Password' name='Password' class='inform'/>
-			<input type='submit' name='Signup button' value='Sign up' class='inform' />
-		</form>
-		
-		<h3>Login if you already have an account</h3>
-		
-		<form enctype="multipart/form-data" action='login.php' method='post'>
-			<input type='text' value='Username' name='Username' class='inform'/>
-			<input type='text' value='Password' name='Password' class='inform'/>
-			<input type='submit' name='Login button' value='Login' class='inform' />
+			<input type='text' placeholder='Username' name='Username' class='tbox' />
+			<input type='text' placeholder='Password' name='Password' class='tbox'/>
+			<input type='submit' name='signup_button' value='Sign up' class='inform' />
+			<input type='submit' name='login_button' value='Login' class='inform' />
 			<?php
-			if (isset($_GET['error']))
-				echo 'Invalid username or password. Please try again.';
-			?>
+				if (isset($_GET['msg'])){
+					$msg=$_GET['msg'];
+					switch ($msg){
+						case 1:
+							echo '<p>Please enter a username of 8 characters or more.</p>';
+							break;
+						case 2:
+							echo '<p>Please enter a password of 8 characters or more.</p>';
+							break;
+						case 3:
+							echo '<p>The username you entered is taken. Please choose a different username</p>';
+							break;
+						case 4:
+							echo '<p>Incorrect password. Please try again.</p>';
+							break;
+						case 5:
+							echo '<p>The username you entered does not exist.</p>';
+							break;
+					}
+				}
+				?>
 		</form>
+		
 		</div>
 	<?php
 		}
-	
 		?>
+		
 		<div id='logout'>
 		<?php
-			if (isset($_SESSION['Username']))
+			if (isset($_SESSION['Username'])){
+				$usn=$_SESSION['Username'];
+				echo "<p>Welcome, $usn!</p>";
 				echo "<a href='logout.php'>Logout</a>";
+			}
 		?>
 		</div>
 	</div>
@@ -96,6 +111,5 @@
 	</footer>
 </div>
 </body>
-
 
 </html>
